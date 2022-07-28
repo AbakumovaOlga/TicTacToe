@@ -27,4 +27,6 @@ public class GameUserCreateDto {
         this.defeat=0;
         this.win=0;
     }
+
+    
 }

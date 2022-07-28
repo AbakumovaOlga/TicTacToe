@@ -1,5 +1,6 @@
 package com.example.tictactoe.repository.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -8,6 +9,7 @@ import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Repository;
 
+import com.example.tictactoe.dto.GameUserTableDto;
 import com.example.tictactoe.model.GameUser;
 import com.example.tictactoe.repository.GameUserRepository;
 
@@ -25,9 +27,18 @@ public class GameUserRepositoryImpl implements GameUserRepository {
     }
 
     @Override
-    public List<GameUser> findAll() {
-        // TODO Auto-generated method stub
-        return null;
+    public List<GameUserTableDto> findAll() {
+        List<GameUser> gameUsers = entityManager
+                .createQuery(
+                        "SELECT GameUser from GameUser GameUser order by (GameUser.win/GameUser.win+GameUser.defeat)",
+                        GameUser.class)
+                .setMaxResults(10).getResultList();
+        List<GameUserTableDto> gameUserTableDtos = new ArrayList<GameUserTableDto>();
+        for (GameUser gameUser : gameUsers) {
+            gameUserTableDtos.add(new GameUserTableDto(gameUser.getFio(), gameUser.getWin(), gameUser.getDefeat()));
+        }
+
+        return gameUserTableDtos;
     }
 
     @Override
@@ -40,11 +51,12 @@ public class GameUserRepositoryImpl implements GameUserRepository {
     public GameUser authorization(String login, String password) {
         System.out.println(login + " " + password);
         List<GameUser> gameUsers = entityManager
-                .createQuery("SELECT GameUser from GameUser GameUser where GameUser.login=?1 and GameUser.password=?2", GameUser.class)
+                .createQuery("SELECT GameUser from GameUser GameUser where GameUser.login=?1 and GameUser.password=?2",
+                        GameUser.class)
                 .setParameter(1, login)
                 .setParameter(2, password)
                 .getResultList();
-        return gameUsers.size()==0 ? null : gameUsers.get(0);
+        return gameUsers.size() == 0 ? null : gameUsers.get(0);
     }
 
 }

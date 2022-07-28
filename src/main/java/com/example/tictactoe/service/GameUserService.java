@@ -1,8 +1,11 @@
 package com.example.tictactoe.service;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import com.example.tictactoe.dto.GameUserCreateDto;
+import com.example.tictactoe.dto.GameUserTableDto;
 import com.example.tictactoe.model.GameUser;
 import com.example.tictactoe.repository.GameUserRepository;
 
@@ -24,4 +27,10 @@ public class GameUserService {
 
         return gameUserRepository.authorization(login, password);
     }
+
+    public List<GameUserTableDto> findAll() {
+        return gameUserRepository.findAll();
+    }
+
+
 }
