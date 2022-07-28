@@ -20,11 +20,19 @@ public class Game {
         INPROCESS, FINISHED
 
     }
-
-    private int player1_id;
-
-    private int player2_id;
+    @ManyToMany(mappedBy = "games")
+    private List<GameUser> gameUsers;
 
     @OneToMany(mappedBy = "game", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Move> moves;
+
+    public Game(Status status) {
+        this.status = status;
+    }
+
+    public Game() {
+    }
+    
+
+    
 }

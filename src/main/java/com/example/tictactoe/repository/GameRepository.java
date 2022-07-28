@@ -13,6 +13,6 @@ public interface GameRepository {
 
     Game findById(int id);
 
-    Game findByGameUser(GameUser user);
+    List<Game> findByGameUser(GameUser gameUser);
 
 }

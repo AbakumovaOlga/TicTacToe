@@ -16,7 +16,7 @@ public class Move {
     private Game game;
     
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "gameUser_id")
     private GameUser user;
 
     // position

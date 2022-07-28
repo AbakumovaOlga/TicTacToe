@@ -13,4 +13,6 @@ public interface GameUserRepository {
     List<GameUser> findAll();
 
     GameUser findById(int id);
+
+    GameUser authorization(String login, String password);
 }
