@@ -22,7 +22,7 @@ public class GameUserController {
 
     private final GameUserService gameUserService;
     
-    @PostMapping("/create")
+    @PostMapping
     public void createGameUser(@RequestBody GameUserCreateDto body) {
         gameUserService.createGameUser(body);
     }

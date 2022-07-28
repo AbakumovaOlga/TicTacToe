@@ -24,8 +24,8 @@ public class GameController {
     private final GameService gameService;
     private final GameUserService gameUserService;
 
-    @PostMapping("/create")
-    public void createGameUser(@RequestHeader("login") String login, @RequestHeader("password") String password) {
+    @PostMapping
+    public void createGame(@RequestHeader("login") String login, @RequestHeader("password") String password) {
         GameUser player = gameUserService.authorization(login, password);
         if (player != null) {
             System.out.println("200");
