@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import com.example.tictactoe.model.Game;
 import com.example.tictactoe.model.GameUser;
 import com.example.tictactoe.model.Game.Status;
+import com.example.tictactoe.repository.GameRepository;
 import com.example.tictactoe.repository.GameUserRepository;
 
 import lombok.RequiredArgsConstructor;
@@ -15,10 +16,17 @@ import lombok.RequiredArgsConstructor;
 public class GameService {
 
     private final GameUserRepository gameUserRepository;
+    private final GameRepository gameRepository;
 
     public void createGame(GameUser player) {
         var newGame = new Game(Status.INPROCESS);
         player.getGames().add(newGame);
+        gameUserRepository.save(player);
+    }
+
+    public void joinGame(GameUser player, int id) {
+        var joinGame=gameRepository.findById(id);
+        player.getGames().add(joinGame);
         gameUserRepository.save(player);
     }
 
