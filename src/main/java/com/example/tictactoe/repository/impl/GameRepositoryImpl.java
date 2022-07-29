@@ -32,14 +32,14 @@ public class GameRepositoryImpl implements GameRepository {
 
     @Override
     public Game findById(int id) {
-        // TODO Auto-generated method stub
-        return null;
+        return entityManager.find(Game.class, id);
+
     }
 
     @Override
     public List<Game> findByGameUser(GameUser GameUser) {
-       // TODO Auto-generated method stub
-       return null;
+        // TODO Auto-generated method stub
+        return null;
     }
 
 }
