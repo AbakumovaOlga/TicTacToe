@@ -27,7 +27,13 @@ public class GameUserRepositoryImpl implements GameUserRepository {
     }
 
     @Override
-    public List<GameUserTableDto> findAll() {
+    public List<GameUser> findAll() {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public List<GameUserTableDto> tableGameUsers() {
         List<GameUser> gameUsers = entityManager
                 .createQuery(
                         "SELECT GameUser from GameUser GameUser order by (GameUser.win/GameUser.win+GameUser.defeat)",

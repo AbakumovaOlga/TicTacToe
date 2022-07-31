@@ -32,6 +32,8 @@ public class GameRepositoryImpl implements GameRepository {
 
     @Override
     public Game findById(int id) {
+        
+       
         return entityManager.find(Game.class, id);
 
     }
@@ -41,5 +43,6 @@ public class GameRepositoryImpl implements GameRepository {
         // TODO Auto-generated method stub
         return null;
     }
+
 
 }

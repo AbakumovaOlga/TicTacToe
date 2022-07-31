@@ -15,4 +15,5 @@ public interface GameRepository {
 
     List<Game> findByGameUser(GameUser gameUser);
 
+
 }

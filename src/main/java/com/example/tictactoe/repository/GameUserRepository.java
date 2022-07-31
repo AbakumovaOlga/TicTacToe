@@ -11,9 +11,11 @@ import com.example.tictactoe.model.GameUser;
 public interface GameUserRepository {
     void save(GameUser user);
 
-    List<GameUserTableDto> findAll();
+    List<GameUser> findAll();
 
     GameUser findById(int id);
 
     GameUser authorization(String login, String password);
+
+    List<GameUserTableDto> tableGameUsers();
 }

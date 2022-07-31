@@ -24,8 +24,11 @@ public class GameService {
         gameUserRepository.save(player);
     }
 
-    public void joinGame(GameUser player, int id) {
+    public void joinGame(GameUser player, int id) throws Exception {
         var joinGame=gameRepository.findById(id);
+        if(joinGame.getGameUsers().size()>1){
+            throw new Exception("there are no available seats");
+        }
         player.getGames().add(joinGame);
         gameUserRepository.save(player);
     }

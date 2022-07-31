@@ -29,8 +29,8 @@ public class GameUserController {
 
     @GetMapping
     @ResponseBody
-    public List<GameUserTableDto> findAll() {
-        return gameUserService.findAll();
+    public List<GameUserTableDto> tableGameUsers() {
+        return gameUserService.tableGameUsers();
     }
 
 }

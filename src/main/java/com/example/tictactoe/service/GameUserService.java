@@ -28,8 +28,8 @@ public class GameUserService {
         return gameUserRepository.authorization(login, password);
     }
 
-    public List<GameUserTableDto> findAll() {
-        return gameUserRepository.findAll();
+    public List<GameUserTableDto> tableGameUsers() {
+        return gameUserRepository.tableGameUsers();
     }
 
 
