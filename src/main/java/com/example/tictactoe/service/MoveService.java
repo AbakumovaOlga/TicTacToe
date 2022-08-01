@@ -1,9 +1,7 @@
 package com.example.tictactoe.service;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
-import org.hibernate.annotations.Check;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
@@ -144,7 +142,7 @@ public class MoveService {
         int winnerId = -1;
         for (int i = 1; i < MAP_SIZE && isWIn; i++) {
             if (field[0][0] == -1) {
-                isWIn=false;
+                isWIn = false;
                 continue;
             }
             isWIn = field[i][i] == field[0][0];
@@ -159,7 +157,7 @@ public class MoveService {
         winnerId = -1;
         for (int i = 1; i < MAP_SIZE && isWIn; i++) {
             if (field[MAP_SIZE - i - 1][0] == -1) {
-                isWIn=false;
+                isWIn = false;
                 continue;
             }
             isWIn = field[MAP_SIZE - i - 1][i] == field[MAP_SIZE - 1][0];

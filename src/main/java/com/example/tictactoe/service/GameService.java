@@ -1,6 +1,5 @@
 package com.example.tictactoe.service;
 
-
 import org.springframework.stereotype.Service;
 
 import com.example.tictactoe.model.Game;
@@ -25,9 +24,12 @@ public class GameService {
     }
 
     public void joinGame(GameUser player, int id) throws Exception {
-        var joinGame=gameRepository.findById(id);
-        if(joinGame.getGameUsers().size()>1){
+        var joinGame = gameRepository.findById(id);
+        if (joinGame.getGameUsers().size() > 1) {
             throw new Exception("there are no available seats");
+        }
+        if (joinGame.getGameUsers().contains(player)) {
+            throw new Exception("you are already in the game");
         }
         player.getGames().add(joinGame);
         gameUserRepository.save(player);
