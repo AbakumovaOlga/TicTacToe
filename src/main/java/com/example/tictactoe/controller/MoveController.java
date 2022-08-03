@@ -1,6 +1,8 @@
 package com.example.tictactoe.controller;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.messaging.handler.annotation.MessageMapping;
+import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
@@ -27,6 +29,8 @@ public class MoveController {
 
     @PostMapping
     @ResponseBody
+    @MessageMapping("/game.sendMove")
+    @SendTo("/topic/public")
     public String createMove(@RequestHeader("login") String login, @RequestHeader("password") String password, @RequestBody MoveCreateDto body) {
         GameUser player = gameUserService.authorization(login, password);
         if (player != null) {
