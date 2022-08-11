@@ -6,7 +6,7 @@ import com.example.tictactoe.model.Game;
 import com.example.tictactoe.model.Move;
 
 public interface MoveRepository {
-    void save(Move game);
+    Move save(Move game);
 
     List<Move> findAll();
 

@@ -20,8 +20,9 @@ public class MoveRepositoryImpl implements MoveRepository {
     private EntityManager entityManager;
 
     @Override
-    public void save(Move move) {
+    public Move save(Move move) {
         entityManager.persist(move);
+        return move;
     }
 
     @Override
