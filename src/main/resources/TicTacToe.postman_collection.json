@@ -1,0 +1,217 @@
+{
+	"info": {
+		"_postman_id": "5adf5b75-c722-4724-b53e-8f1031142701",
+		"name": "TicTacToe",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "16908117"
+	},
+	"item": [
+		{
+			"name": "Game",
+			"item": [
+				{
+					"name": "Create Game",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "login",
+								"value": "{{login}}",
+								"type": "text"
+							},
+							{
+								"key": "password",
+								"value": "{{password}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/game",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"game"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Join Game",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "login",
+								"value": "{{login}}",
+								"type": "text"
+							},
+							{
+								"key": "password",
+								"value": "{{password}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/game/join/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"game",
+								"join",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Games",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "login",
+								"value": "{{login}}",
+								"type": "text"
+							},
+							{
+								"key": "password",
+								"value": "{{password}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/game/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"game",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "GameUser",
+			"item": [
+				{
+					"name": "Create GameUser",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"fio\":\"fio2\",\r\n    \"login\":\"login2\",\r\n    \"password\":\"password2\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/gameUser",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"gameUser"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get GameUsers",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "password",
+								"value": "{{password}}",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "login",
+								"value": "{{login}}",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/gameUser",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"gameUser"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Move",
+			"item": [
+				{
+					"name": "Create Move",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "login",
+								"value": "{{login}}",
+								"type": "text"
+							},
+							{
+								"key": "password",
+								"value": "{{password}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"gameId\":3,\r\n    \"x\":2,\r\n    \"y\":0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/move",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"move"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
